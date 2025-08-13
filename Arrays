@@ -1,0 +1,266 @@
+ARRAYS FUNCTIONS
+
+1) reduce()
+
+Reduce el arreglo a un único valor aplicando una función acumuladora.
+
+EJEMPLO: 
+let numeros = [2, 3, 4];
+let suma = numeros.reduce((total, num) => total + num, 0);
+console.log(suma); // 9
+
+2) copyWithin()
+
+Copia una parte del arreglo a otra posición dentro del mismo.
+
+EJEMPLO: 
+let arr = [1, 2, 3, 4, 5];
+arr.copyWithin(1, 3);
+console.log(arr); // [1, 4, 5, 4, 5]
+
+3) concat()
+
+Une dos o más arreglos en uno nuevo.
+
+EJEMPLO: 
+let a = [1, 2];
+let b = [3, 4];
+let unido = a.concat(b);
+console.log(unido); // [1, 2, 3, 4]
+
+4) findIndex()
+
+Devuelve el índice del primer elemento que cumpla una condición.
+
+EJEMPLO: 
+let edades = [15, 18, 21];
+let indice = edades.findIndex(e => e >= 18);
+console.log(indice); // 1
+
+5) map()
+
+Crea un nuevo arreglo con los resultados de aplicar una función a cada elemento.
+
+EJEMPLO: 
+let numeros = [1, 2, 3];
+let dobles = numeros.map(n => n * 2);
+console.log(dobles); // [2, 4, 6]
+
+6) find()
+
+Devuelve el primer elemento que cumpla con una condición.
+
+EJEMPLO: 
+let nombres = ["Ana", "Luis", "Pedro"];
+let encontrado = nombres.find(n => n.startsWith("L"));
+console.log(encontrado); // "Luis"
+
+7) reverse()
+
+Invierte el orden de los elementos del arreglo.
+
+EJEMPLO:
+let letras = ["a", "b", "c"];
+letras.reverse();
+console.log(letras); // ["c", "b", "a"]
+
+8) flat()
+
+Aplana un arreglo de subarreglos en uno solo.
+
+EJEMPLO:
+let arr = [1, [2, 3], [4, [5]]];
+console.log(arr.flat(2)); // [1, 2, 3, 4, 5]
+
+9) keys()
+
+Devuelve un iterador con las llaves del arreglo.
+EJEMPLO:
+let arr = ["a", "b"];
+let iterador = arr.keys();
+for (let k of iterador) console.log(k); // 0, 1
+
+10) filter()
+
+Crea un nuevo arreglo con los elementos que cumplan una condición.
+EJEMPLO:
+let numeros = [5, 10, 15];
+let filtrados = numeros.filter(n => n > 8);
+console.log(filtrados); // [10, 15]
+
+11) push()
+
+Agrega uno o más elementos al final del arreglo.
+EJEMPLO:
+let frutas = ["manzana"];
+frutas.push("pera", "naranja");
+console.log(frutas); // ["manzana", "pera", "naranja"]
+
+12) some()
+
+Verifica si al menos un elemento cumple la condición.
+EJEMPLO:
+let nums = [1, 3, 5];
+console.log(nums.some(n => n % 2 === 0)); // false
+
+13) fill()
+
+Llena el arreglo con un valor específico.
+EJEMPLO:
+let arr = [1, 2, 3];
+arr.fill(0);
+console.log(arr); // [0, 0, 0]
+
+14) splice()
+
+Agrega o elimina elementos en una posición específica.
+EJEMPLO:
+let colores = ["rojo", "azul", "verde"];
+colores.splice(1, 1, "amarillo");
+console.log(colores); // ["rojo", "amarillo", "verde"]
+
+15) forEach()
+
+Ejecuta una función para cada elemento del arreglo.
+EJEMPLO:
+let numeros = [1, 2, 3];
+numeros.forEach(n => console.log(n * 3));
+
+16) flatMap()
+
+Aplica una función y aplana el resultado.
+EJEMPLO:
+let arr = [1, 2];
+console.log(arr.flatMap(n => [n, n * 2])); // [1, 2, 2, 4]
+
+17) pop()
+
+Elimina el último elemento y lo devuelve.
+EJEMPLO:
+let frutas = ["fresa", "mango"];
+let quitado = frutas.pop();
+console.log(frutas); // ["fresa"]
+
+18) indexOf()
+
+Devuelve el índice de la primera ocurrencia de un valor.
+EJEMPLO:
+let letras = ["a", "b", "c"];
+console.log(letras.indexOf("b")); // 1
+
+19) every()
+
+Verifica si todos los elementos cumplen la condición.
+EJEMPLO:
+let nums = [2, 4, 6];
+console.log(nums.every(n => n % 2 === 0)); // true
+
+20) reduceRight()
+
+Reduce el arreglo de derecha a izquierda.
+EJEMPLO:
+let nums = [1, 2, 3];
+let resta = nums.reduceRight((a, b) => a - b);
+console.log(resta); // 0
+
+21) values()
+
+Devuelve un iterador con los valores del arreglo.
+EJEMPLO:
+let arr = ["x", "y"];
+for (let v of arr.values()) console.log(v);
+
+22) join()
+
+Une todos los elementos en una cadena.
+EJEMPLO:
+let palabras = ["Hola", "mundo"];
+console.log(palabras.join(" ")); // "Hola mundo"
+
+23) findLast()
+
+Devuelve el último elemento que cumple la condición.
+EJEMPLO:
+let nums = [5, 10, 15];
+console.log(nums.findLast(n => n > 8)); // 15
+
+24) unshift()
+
+Agrega uno o más elementos al inicio.
+EJEMPLO:
+let nums = [2, 3];
+nums.unshift(1);
+console.log(nums); // [1, 2, 3]
+
+25) findLastIndex()
+
+Devuelve el índice del último elemento que cumpla la condición.
+EJEMPLO:
+let nums = [1, 4, 6, 4];
+console.log(nums.findLastIndex(n => n === 4)); // 3
+
+26) includes()
+
+Verifica si el arreglo contiene un elemento.
+EJEMPLO:
+let frutas = ["pera", "uva"];
+console.log(frutas.includes("uva")); // true
+
+27) sort()
+
+Ordena los elementos del arreglo.
+EJEMPLO:
+let nums = [3, 1, 2];
+nums.sort();
+console.log(nums); // [1, 2, 3]
+
+28) slice()
+
+Devuelve una copia de una parte del arreglo.
+EJEMPLO:
+let letras = ["a", "b", "c", "d"];
+console.log(letras.slice(1, 3)); // ["b", "c"]
+
+29) entries()
+
+Devuelve un iterador con pares [índice, valor].
+EJEMPLO:
+let arr = ["uno", "dos"];
+for (let [i, v] of arr.entries()) console.log(i, v);
+
+30) lastIndexOf()
+
+Devuelve el índice de la última ocurrencia de un valor.
+EJEMPLO:
+let letras = ["a", "b", "a"];
+console.log(letras.lastIndexOf("a")); // 2
+
+31) toString()
+
+Convierte el arreglo en una cadena de texto.
+EJEMPLO:
+let arr = [1, 2, 3];
+console.log(arr.toString()); // "1,2,3"
+
+32) toLocaleString()
+
+Convierte el arreglo en una cadena usando la configuración regional.
+EJEMPLO:
+let precios = [1000, 2000];
+console.log(precios.toLocaleString()); // "1,000,2,000"
+
+33) at()
+
+Devuelve el elemento en un índice específico (soporta índices negativos).
+EJEMPLO:
+let letras = ["a", "b", "c"];
+console.log(letras.at(-1)); // "c"
+
+34) shift()
+
+Elimina el primer elemento del arreglo y lo devuelve.
+
+EJEMPLO: 
+let frutas = ["uva", "kiwi", "mango"];
+let eliminado = frutas.shift();
+console.log(frutas); // ["kiwi", "mango"]
