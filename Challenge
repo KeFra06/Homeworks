@@ -1,0 +1,30 @@
+PRINCIPAL DIFERENCIA ENTRE LAS FUNCIONES NORMALES Y LAS FUNCIONES FLECHA
+
+En JavaScript, las funciones normales (function) y las funciones flecha (=>) se diferencian principalmente
+en cómo manejan el contexto y su sintaxis: las funciones normales tienen su propio this y arguments, 
+pueden usarse como constructores con new y su this depende de cómo se invoquen, 
+mientras que las funciones flecha tienen una sintaxis más corta, no poseen this propio (heredan el del ámbito donde se crean), 
+no tienen arguments y no pueden usarse como constructores; por eso, las funciones normales son más adecuadas cuando se necesita 
+un contexto propio o instancias, y las flecha son ideales para callbacks o funciones pequeñas donde no se requiera un this independiente.
+
+2) 
+
+FUNCION NORMAL PARA VER SI UN NUMERO ES PAR O NO 
+
+function verificarSiEsPar(num) {
+  if (num % 2 === 0) {
+    console.log(`el numero ${num} es par`);
+  } else {
+    console.log(`el numero ${num} es impar`);
+  }
+};
+
+FUNCION FLECHA PARA VER SI UN NUMERO ES PAR O NO 
+
+const verificarSiEsParFlecha = (num) => {
+  if (num % 2 === 0) {
+    console.log(`el numero ${num} es par`);
+  } else {
+    console.log(`el numero ${num} es impar`);
+  }
+};
