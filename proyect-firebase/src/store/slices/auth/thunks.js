@@ -1,19 +1,39 @@
+import { auth, signInWithEmailAndPassword, signInWithPopup, googleProvider, signOut } from '../../../firebase/config';
 import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
-import { auth } from '../../../firebase/config';
-import { login } from './authSlice';
+import { login, logout } from './authSlice';
 
-export const registerAuth = (email, password) => {
-  return async (dispatch) => {
-    const response = await createUserWithEmailAndPassword(auth, email, password);
-    if (response) {
-      await updateProfile(auth.currentUser, {
-        displayName: 'KeFra',
-        photoURL: ''
-      });
-      const { uid, email, displayName, photoURL } = auth.currentUser;
-      dispatch(login({ uid, email, displayName, photoURL }));
-    } else {
-      throw new Error('login failed');
-    }
-  };
+export const startLoginWithEmailPassword = (email, password) => async (dispatch) => {
+  try {
+    const userCredential = await signInWithEmailAndPassword(auth, email, password);
+    const { uid, displayName, email: userEmail } = userCredential.user;
+    dispatch(login({ uid, displayName, email: userEmail }));
+  } catch (error) {
+    dispatch(logout(error.message));
+  }
+};
+
+export const startGoogleSignIn = () => async (dispatch) => {
+  try {
+    const result = await signInWithPopup(auth, googleProvider);
+    const { uid, displayName, email } = result.user;
+    dispatch(login({ uid, displayName, email }));
+  } catch (error) {
+    dispatch(logout(error.message));
+  }
+};
+
+export const startRegisterWithEmailPassword = (email, password, displayName) => async (dispatch) => {
+  try {
+    const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+    await updateProfile(userCredential.user, { displayName });
+    const { uid } = userCredential.user;
+    dispatch(login({ uid, displayName, email }));
+  } catch (error) {
+    dispatch(logout(error.message));
+  }
+};
+
+export const startLogout = () => async (dispatch) => {
+  await signOut(auth);
+  dispatch(logout());
 };
