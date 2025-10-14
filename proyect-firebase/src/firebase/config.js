@@ -1,0 +1,20 @@
+import { getAuth } from 'firebase/auth';
+import { initializeApp } from 'firebase/app';
+import { getStorage } from 'firebase/storage';
+import { getFirestore } from 'firebase/firestore';
+
+const firebaseConfig = {
+  apiKey: "AIzaSyC7xkdiQejIqcOVPSmNttaFbQFVZnTx_zw",
+  authDomain: "proyecto-firebase-bb4f6.firebaseapp.com",
+  projectId: "proyecto-firebase-bb4f6",
+  storageBucket: "proyecto-firebase-bb4f6.firebasestorage.app",
+  messagingSenderId: "1038918683697",
+  appId: "1:1038918683697:web:957b7fc9709502b26f9910"
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const firebaseStorage = getStorage(app);
+const db = getFirestore();
+
+export { app, auth, firebaseStorage, db };
