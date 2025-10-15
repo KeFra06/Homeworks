@@ -10,7 +10,7 @@ const Crud = () => {
   useEffect(() => {
     getAll();
   }, []);
-
+  
   const handleAdd = async () => {
     if (newName) {
       await add({ name: newName });
