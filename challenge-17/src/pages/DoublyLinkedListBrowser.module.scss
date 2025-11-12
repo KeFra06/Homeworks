@@ -1,0 +1,50 @@
+@use '../styles/variables' as *;
+@use '../styles/mixins' as *;
+
+.container {
+  @include glass-card(1rem);
+}
+
+.heading {
+  color: white;
+  margin: 0 0 0.5rem 0;
+}
+
+.infoRow {
+  display:flex;
+  gap:1rem;
+  align-items:center;
+  justify-content: space-between;
+}
+
+.card {
+  @include glass-card(0.9rem);
+  margin-top: 0.75rem;
+}
+
+.controls {
+  display:flex;
+  gap:0.5rem;
+  margin-top:0.75rem;
+}
+
+.btn {
+  background: transparent;
+  border-radius: 8px;
+  padding: 0.45rem 0.8rem;
+  border: 1px solid rgba(255,255,255,0.06);
+  color: $muted;
+  cursor:pointer;
+}
+.btn:disabled { opacity: 0.35; cursor: not-allowed; }
+
+.historyList {
+  margin-top: 0.75rem;
+  padding-left: 1.1rem;
+}
+
+.current {
+  background: linear-gradient(90deg, rgba(100,108,255,0.12), rgba(139,92,246,0.08));
+  padding: 0.6rem;
+  border-radius: 8px;
+}

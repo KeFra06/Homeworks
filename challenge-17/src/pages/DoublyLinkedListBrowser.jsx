@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import DoublyLinkedList from "../lists/DoublyLinkedList";
+import styles from "./DoublyLinkedListBrowser.module.scss";
 
 export default function DoublyLinkedListBrowser() {
   const [dlist] = useState(() => new DoublyLinkedList());
@@ -42,29 +43,33 @@ export default function DoublyLinkedListBrowser() {
   }
 
   return (
-    <div>
-      <h2>Lista Doblemente Enlazada — Navegador (atrás / adelante)</h2>
-      <div>
-        <div>Páginas en historial: {dlist.size()}</div>
+    <div className={styles.container}>
+      <h2 className={styles.heading}>Lista Doblemente Enlazada — Navegador (atrás / adelante)</h2>
+
+      <div className={styles.card}>
+        <div className={styles.cardHeader}>
+          <div>Páginas en historial: {dlist.size()}</div>
+        </div>
+
         {currentNode ? (
-          <div>
+          <div className={styles.current}>
             <div>Página actual:</div>
             <div>Título: {currentNode.value.title}</div>
             <div>URL: {currentNode.value.url}</div>
-            <div>
-              <button onClick={goBack} disabled={!currentNode.prev}>Atrás</button>
-              <button onClick={goForward} disabled={!currentNode.next}>Adelante</button>
-              <button onClick={removeCurrent}>Eliminar actual</button>
+            <div className={styles.controls}>
+              <button className={styles.btn} onClick={goBack} disabled={!currentNode.prev}>Atrás</button>
+              <button className={styles.btn} onClick={goForward} disabled={!currentNode.next}>Adelante</button>
+              <button className={styles.btn} onClick={removeCurrent}>Eliminar actual</button>
             </div>
           </div>
         ) : (
-          <div>No hay páginas en el historial</div>
+          <div className={styles.muted}>No hay páginas en el historial</div>
         )}
       </div>
 
-      <div>
+      <div className={styles.card}>
         <div>Historial (lista)</div>
-        <ol>
+        <ol className={styles.historyList}>
           {dlist.print().map((p, i) => (
             <li key={i}>{p.title} — {p.url}</li>
           ))}

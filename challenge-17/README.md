@@ -14,3 +14,18 @@ The React Compiler is not enabled on this template. To add it, see [this documen
 ## Expanding the ESLint configuration
 
 If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+
+## Sass & CSS Modules (added)
+
+This project was updated to use Sass and CSS Modules for component-level styling.
+
+- Global styles and variables: `src/styles/global.scss` and partials in `src/styles/_variables.scss` and `src/styles/_mixins.scss`.
+- Component styles: CSS Modules located near components, e.g. `src/styles/App.module.scss`, `src/pages/LinkedListSongs.module.scss`, `src/pages/DoublyLinkedListBrowser.module.scss`.
+
+How to run locally:
+
+1. Install dependencies: `npm install`
+2. Start dev server: `npm run dev`
+3. Build for production: `npm run build`
+
+If you encounter Sass import or build errors, ensure `sass` is installed (it's already added to `package.json`).

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import LinkedList from "../lists/LinkedList";
+import styles from "./LinkedListSongs.module.scss";
 
 export default function LinkedListSongs() {
   const [list] = useState(() => new LinkedList());
@@ -45,29 +46,30 @@ useEffect(() => {
   }
 
   return (
-    <div>
-      <h2>Lista Enlazada — Reproductor de canciones</h2>
-      <div>
+    <div className={styles.container}>
+      <h2 className={styles.heading}>Lista Enlazada — Reproductor de canciones</h2>
+
+      <div className={styles.player}>
         <div>Número de canciones: {list.size()}</div>
         {currentNode ? (
-          <div>
+          <div className={styles.nowPlaying}>
             <div>Reproduciendo:</div>
             <div>Título: {currentNode.value.title}</div>
             <div>Artista: {currentNode.value.artist}</div>
             <div>Duración: {currentNode.value.duration}</div>
-            <div>
-              <button onClick={handleNext} disabled={!currentNode.next}>Siguiente</button>
-              <button onClick={handleRemoveCurrent}>Eliminar actual</button>
+            <div className={styles.controls}>
+              <button className={styles.btn} onClick={handleNext} disabled={!currentNode.next}>Siguiente</button>
+              <button className={styles.btn} onClick={handleRemoveCurrent}>Eliminar actual</button>
             </div>
           </div>
         ) : (
-          <div>No hay canciones</div>
+          <div className={styles.muted}>No hay canciones</div>
         )}
       </div>
 
-      <div>
+      <div className={styles.card}>
         <div>Lista completa</div>
-        <ol>
+        <ol className={styles.list}>
           {list.print().map((s, i) => (
             <li key={i}>{s.title} — {s.artist} ({s.duration})</li>
           ))}

@@ -1,0 +1,84 @@
+@use './variables' as *;
+@use './mixins' as *;
+
+.rootContainer {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem;
+  color: $muted;
+}
+
+.appHeader {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+}
+
+.title {
+  color: $accent-2;
+  @include responsive-text(1.4rem, 2.25rem);
+  margin: 0;
+}
+
+.navControls {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.pageCard {
+  @include glass-card(1.5rem);
+  margin-bottom: 1rem;
+  text-align: left;
+}
+
+.muted {
+  color: $muted;
+}
+
+.controls {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.list {
+  margin-top: 1rem;
+  padding-left: 1.1rem;
+}
+
+.cardHeader {
+  display:flex;
+  justify-content: space-between;
+  align-items:center;
+}
+@import './theme.module.scss';
+
+:export {
+  fontFamily: $font-stack;
+}
+
+.container {
+  font-family: $font-stack;
+  color: get-color(muted);
+  background: linear-gradient(180deg, get-color(bg), darken(get-color(bg), 6%));
+  min-height: 100vh;
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+
+  @include respond-to(md) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @include respond-to(sm) {
+    grid-template-columns: 1fr;
+  }
+}

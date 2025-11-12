@@ -1,0 +1,16 @@
+@use './variables' as *;
+
+@mixin glass-card($pad: 1.25rem) {
+  background: $card-bg;
+  border-radius: $radius;
+  padding: $pad;
+  border: 1px solid $glass-border;
+  box-shadow: $shadow;
+}
+
+@mixin responsive-text($size-mobile, $size-desktop) {
+  font-size: $size-mobile;
+  @media (min-width: 720px) {
+    font-size: $size-desktop;
+  }
+}

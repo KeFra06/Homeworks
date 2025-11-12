@@ -1,0 +1,34 @@
+@use '../styles/variables' as *;
+@use '../styles/mixins' as *;
+
+.container {
+  @include glass-card(1rem);
+}
+
+.heading {
+  color: white;
+  margin: 0 0 0.5rem 0;
+}
+
+.player {
+  @include glass-card(0.9rem);
+}
+
+.nowPlaying {
+  background: linear-gradient(90deg, rgba(139,92,246,0.08), rgba(100,108,255,0.06));
+  padding: 0.6rem;
+  border-radius: 8px;
+}
+
+.controls {
+  display:flex;
+  gap:0.5rem;
+  margin-top:0.5rem;
+}
+
+.btn { @extend .btn; }
+
+.list {
+  margin-top: 0.75rem;
+  padding-left: 1.1rem;
+}
